@@ -128,5 +128,5 @@ Command example:
     --logs-prefix /tmp/logs/2017-05-22_181224                    \
     --log-config /tmp/logs/2017-05-22_181224/conf/node0.log.yaml \
     --system-start 1495462345                                    \
-    --peer 127.0.0.1:3001                                        \
+    --peer 0.0.0.0:3001                                        \
     repl|]

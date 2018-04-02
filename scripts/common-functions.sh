@@ -117,12 +117,12 @@ function gen_kademlia_topology {
 
     for j in $(seq 0 $others_n); do
       if [[ $j -eq $i ]]; then continue; fi
-      echo "  - host: '127.0.0.1'" >> $kfile
+      echo "  - host: '0.0.0.0'" >> $kfile
       echo "    port: 300$j"       >> $kfile
     done
 
     echo "address:" >> $kfile
-    echo "  host: '127.0.0.1'" >> $kfile
+    echo "  host: '0.0.0.0'" >> $kfile
     echo "  port: 300$i" >> $kfile
 
 
@@ -146,7 +146,7 @@ function gen_kademlia_topology {
       echo "    type: core"             >> $tfile
       echo "    region: undefined"      >> $tfile
       echo "    static-routes: $routes" >> $tfile
-      echo "    addr: 127.0.0.1"        >> $tfile
+      echo "    addr: 0.0.0.0"        >> $tfile
       echo "    port: 300$j"            >> $tfile
 
       # add explorer (as relay node)
@@ -168,7 +168,7 @@ function gen_kademlia_topology {
         echo "    type: relay"            >> $tfile
         echo "    region: undefined"      >> $tfile
         echo "    static-routes: $exr"    >> $tfile
-        echo "    addr: 127.0.0.1"        >> $tfile
+        echo "    addr: 0.0.0.0"        >> $tfile
         echo "    port: 300$exp"          >> $tfile
       fi
     done
@@ -232,14 +232,14 @@ function node_cmd {
 
   echo -n " --db-path $run_dir/node-db$i $rts_opts $reb $no_ntp $keys_args"
 
-  ekg_server="127.0.0.1:"$((8000+$i))
-  statsd_server="127.0.0.1:"$((8125+$i))
+  ekg_server="0.0.0.0:"$((8000+$i))
+  statsd_server="0.0.0.0:"$((8125+$i))
 
   # A sloppy test but it'll do for now.
   local topology_first_six_bytes=`cat $topology_file | head -c 6`
   if [[ "$topology_first_six_bytes" != "wallet" ]]; then
-    #echo -n " --address 127.0.0.1:"`get_port $i`
-    echo -n " --listen 127.0.0.1:"`get_port $i`
+    #echo -n " --address 0.0.0.0:"`get_port $i`
+    echo -n " --listen 0.0.0.0:"`get_port $i`
   fi
   if [[ "$configuration" != "" ]]; then
     echo -n " $configuration "
@@ -262,7 +262,7 @@ function node_cmd {
   #echo -n " --policies $config_dir/policy$i.yaml"
   echo -n "  --update-latest-path $updater_file"
   echo -n "  --update-with-package"
-  echo -n "  --update-server 'http://127.0.0.1:10228/'"
+  echo -n "  --update-server 'http://0.0.0.0:10228/'"
   echo -n "  --no-ntp"
   echo ''
   sleep 0.8
@@ -279,7 +279,7 @@ function bench_cmd {
 
   echo -n "$(find_binary cardano-auxx)"
   # This assumes that the n-1 node is the relay
-  echo -n " --peer 127.0.0.1:"`get_port $((i-1))`
+  echo -n " --peer 0.0.0.0:"`get_port $((i-1))`
   echo -n " $(logs node_auxx.log)"
   echo -n " --system-start $system_start"
   echo -n " cmd --commands \"send-to-all-genesis $time $conc $delay $sendmode ./tps-sent.csv\""

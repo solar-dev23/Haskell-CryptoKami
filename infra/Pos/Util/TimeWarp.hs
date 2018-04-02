@@ -22,14 +22,14 @@ import qualified Serokell.Util.Parse as P
 import qualified Text.Parsec as P
 import qualified Text.Parsec.Text as P
 
--- | @"127.0.0.1"@.
+-- | @"0.0.0.0"@.
 localhost :: ByteString
-localhost = "127.0.0.1"
+localhost = "0.0.0.0"
 
 -- | Full node address.
 type NetworkAddress = (ByteString, Word16)
 
--- TODO: What about node index, i.e. last number in '127.0.0.1:3000:0' ?
+-- TODO: What about node index, i.e. last number in '0.0.0.0:3000:0' ?
 addressToNodeId :: NetworkAddress -> NodeId
 addressToNodeId = addressToNodeId' 0
 

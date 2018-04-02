@@ -64,7 +64,7 @@ route53HealthCheckApplication topology oq = do
     return $ serve healthCheckApi server
 
 serveWeb :: MyWorkMode ctx m => Word16 -> Maybe TlsParams -> m ()
-serveWeb = serveImpl application "127.0.0.1"
+serveWeb = serveImpl application "0.0.0.0"
 
 application :: MyWorkMode ctx m => m Application
 application = do

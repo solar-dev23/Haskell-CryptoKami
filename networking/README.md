@@ -12,7 +12,7 @@ Node is a fundamental part of distributed system. Each node has:
 2. internal state,
 3. thread for dispatching different network events.
 
-One transport endpoint can contain one or more nodes. For example, two nodes started on endpoint `127.0.0.1:10183` can have identificators `127.0.0.1:10183:0` and `127.0.0.1:10183:1`.
+One transport endpoint can contain one or more nodes. For example, two nodes started on endpoint `0.0.0.0:10183` can have identificators `0.0.0.0:10183:0` and `0.0.0.0:10183:1`.
 
 There're sets of workers and listeners associated with each node. Workers and listeners exchange messages with each other.
 

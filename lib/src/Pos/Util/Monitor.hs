@@ -34,7 +34,7 @@ startMonitor port lowerIO node = do
     store <- liftIO Monitoring.newStore
     registerMetrics (Just cardanoNamespace) lowerIO node store
     liftIO $ Monitoring.registerGcMetrics store
-    server <- liftIO $ Monitoring.forkServerWith store "127.0.0.1" port
+    server <- liftIO $ Monitoring.forkServerWith store "0.0.0.0" port
     liftIO . putStrLn $ "Forked EKG server on port " ++ show port
     return server
 

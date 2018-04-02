@@ -150,9 +150,9 @@ Command example:
     --rebuild-db                                                         \
     --keyfile secrets/secret-1.key                                       \
     --kademlia-id a_P8zb6fNP7I2H54FtGuhqxaMDAwMDAwMDAwMDAwMDA=           \
-    --address 127.0.0.1:3000                                             \
-    --listen 127.0.0.1:3000                                              \
-    --kademlia-address 127.0.0.1:3000                                    \
+    --address 0.0.0.0:3000                                             \
+    --listen 0.0.0.0:3000                                              \
+    --kademlia-address 0.0.0.0:3000                                    \
     --json-log=/tmp/logs/2017-05-22_181224/node0.json                    \
     --logs-prefix /tmp/logs/2017-05-22_181224                            \
     --log-config /tmp/logs/2017-05-22_181224/conf/node0.log.yaml         \

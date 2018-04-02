@@ -168,7 +168,7 @@ runRealModeDo NodeResources {..} outSpecs action = do
     startMonitoring topology oq node' = do
         -- Expose the health-check
         let (hcHost, hcPort) = case npRoute53Params of
-                Nothing         -> ("127.0.0.1", 3030)
+                Nothing         -> ("0.0.0.0", 3030)
                 Just (hst, prt) -> (decodeUtf8 hst, fromIntegral prt)
         mRoute53HealthCheck <- case topologyRoute53HealthCheckEnabled topology of
             False -> return Nothing

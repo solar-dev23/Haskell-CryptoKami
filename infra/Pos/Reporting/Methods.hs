@@ -331,7 +331,7 @@ reportNode sendLogs extendWithNodeInfo reportType =
         pure $ sformat outputF (pretty $ listBuilderJSON ips) peersText
       where
         ipExternal (IPv4 w) =
-            not $ ipv4Local w || w == 0 || w == 16777343 -- the last is 127.0.0.1
+            not $ ipv4Local w || w == 0 || w == 16777343 -- the last is 0.0.0.0
         outputF = ("{ nodeIps: '"%stext%"', peers: '"%stext%"' }")
 
     -- checks if ipv4 is from local range

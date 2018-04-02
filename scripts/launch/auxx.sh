@@ -13,7 +13,7 @@ base=$(dirname "$0")
 
 ensure_logs
 
-dht_conf=" --peer 127.0.0.1:3000 --peer 127.0.0.1:3001 --peer 127.0.0.1:3002 --peer 127.0.0.1:3003 "
+dht_conf=" --peer 0.0.0.0:3000 --peer 0.0.0.0:3001 --peer 0.0.0.0:3002 --peer 0.0.0.0:3003 "
 logs_conf=$(logs auxx.log)
 binary=$(find_binary cardano-auxx)
 template="$binary $dht_conf $logs_conf \

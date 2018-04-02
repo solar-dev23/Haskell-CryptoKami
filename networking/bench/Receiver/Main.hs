@@ -44,7 +44,7 @@ main = do
 
     transport_ <- do
         transportOrError <-
-            TCP.createTransport (TCP.defaultTCPAddr "127.0.0.1" (show port))
+            TCP.createTransport (TCP.defaultTCPAddr "0.0.0.0" (show port))
             TCP.defaultTCPParameters
         either throwM return transportOrError
     let transport = concrete transport_

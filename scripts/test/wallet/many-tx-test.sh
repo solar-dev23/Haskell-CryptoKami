@@ -14,18 +14,18 @@ money=100000000
 echo -e "\nLooking for key files $key1"
 
 echo -e "\nResetting wallet database..."
-curl -k https://127.0.0.1:8090/api/test/reset -d "" &> /dev/null
+curl -k https://0.0.0.0:8090/api/test/reset -d "" &> /dev/null
 
 
 echo -e "\nCreating 2 wallets..."
 
 curl -k --request POST \
-  --url https://127.0.0.1:8090/api/wallets/keys \
+  --url https://0.0.0.0:8090/api/wallets/keys \
   --header 'content-type: application/json' \
   --data "\"$key1\"" &> /dev/null
 
 curl -k --request POST \
-     --url https://127.0.0.1:8090/api/wallets/new \
+     --url https://0.0.0.0:8090/api/wallets/new \
      --header 'content-type: application/json' \
      --data '{ 
   "cwInitMeta": {
@@ -45,7 +45,7 @@ echo -e "\nCreating $addrsNum addresses on wallet #2..."
 for i in `seq 1 $addrsNum`;
 do
     curl -k --request POST \
-      --url https://127.0.0.1:8090/api/addresses/ \
+      --url https://0.0.0.0:8090/api/addresses/ \
       --header 'content-type: application/json' \
       --data "\"$acc2\"" &> /dev/null
 done;
@@ -56,7 +56,7 @@ addrs2="$(curl -k https://localhost:8090/api/accounts/$acc2 | grep -o -E \"cadId
 for addr2 in $addrs2
 do
     curl -k --request POST \
-         --url https://127.0.0.1:8090/api/txs/payments/$acc1/$addr2/$money \
+         --url https://0.0.0.0:8090/api/txs/payments/$acc1/$addr2/$money \
          --header 'content-type: application/json' &> /dev/null
 done;
 
@@ -66,7 +66,7 @@ read -n 1
 
 echo -e "\nMaking transaction #2 -> #1..."
 curl -k --request POST \
-     --url https://127.0.0.1:8090/api/txs/payments/$acc2/$someAddr1/$(($money*2)) \
+     --url https://0.0.0.0:8090/api/txs/payments/$acc2/$someAddr1/$(($money*2)) \
   --header 'content-type: application/json' &> /dev/null
 
 

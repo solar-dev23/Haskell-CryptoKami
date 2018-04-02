@@ -90,7 +90,7 @@ makeNode :: Transport Production
          -> Production (ThreadId Production)
 makeNode transport i = do
     let port = 3000 + i
-        host = "127.0.0.1"
+        host = "0.0.0.0"
         addr = (host, fromIntegral port)
         anId = makeId i
         initialPeer =
@@ -127,7 +127,7 @@ main = runProduction $ do
     let params = TCP.defaultTCPParameters { TCP.tcpCheckPeerHost = True }
     transport_ <- do
         transportOrError <- liftIO $
-            TCP.createTransport (TCP.defaultTCPAddr "127.0.0.1" "10128") params
+            TCP.createTransport (TCP.defaultTCPAddr "0.0.0.0" "10128") params
         either throwM return transportOrError
     let transport = concrete transport_
 

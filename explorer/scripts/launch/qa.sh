@@ -13,7 +13,7 @@ stack exec -- cardano-explorer \
     --kademlia-peer 35.158.246.75:3000 \
     --kademlia-peer 34.249.252.215:3000 \
     --kademlia-peer 52.211.65.215:3000 \
-    --listen 127.0.0.1:$((3000)) \
+    --listen 0.0.0.0:$((3000)) \
     --static-peers \
     --no-ntp \
     $@

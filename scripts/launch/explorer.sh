@@ -25,7 +25,7 @@ fi
 source "$common_path"
 cmd="stack exec cardano-explorer --
       --rebuild-db \
-      --listen 127.0.0.1:300$n \
+      --listen 0.0.0.0:300$n \
       --system-start $system_start \
       --log-config explorer/log-config.yaml \
       --topology ./run/topology0.yaml \

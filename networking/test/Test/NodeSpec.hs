@@ -47,9 +47,9 @@ spec = describe "Node" $ modifyMaxSuccess (const 50) $ do
     -- We want to ensure that the MTU works, but not make the tests too
     -- painfully slow.
     let mtu = 25000
-    let tcpTransportUnbounded = runIO $ makeTCPTransport "0.0.0.0" "127.0.0.1" "10342" simpleUnboundedQDisc mtu
-    let tcpTransportOnePlace = runIO $ makeTCPTransport "0.0.0.0" "127.0.0.1" "10343" simpleOnePlaceQDisc mtu
-    let tcpTransportFair = runIO $ makeTCPTransport "0.0.0.0" "127.0.0.1" "10345" (fairQDisc (const (return Nothing))) mtu
+    let tcpTransportUnbounded = runIO $ makeTCPTransport "0.0.0.0" "0.0.0.0" "10342" simpleUnboundedQDisc mtu
+    let tcpTransportOnePlace = runIO $ makeTCPTransport "0.0.0.0" "0.0.0.0" "10343" simpleOnePlaceQDisc mtu
+    let tcpTransportFair = runIO $ makeTCPTransport "0.0.0.0" "0.0.0.0" "10345" (fairQDisc (const (return Nothing))) mtu
     let memoryTransport = runIO $ makeInMemoryTransport
     let transports = [
               ("TCP unbounded queueing", tcpTransportUnbounded)

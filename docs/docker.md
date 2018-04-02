@@ -8,7 +8,7 @@ load the docker image downloaded from hydra
 
 run cardano with the volume and bring port 8090 out to the host
 
-`docker run --rm -it -p 127.0.0.1:8090:8090 -v cardano-state-1:/wallet cardano-container-mainnet-1.0:latest`
+`docker run --rm -it -p 0.0.0.0:8090:8090 -v cardano-state-1:/wallet cardano-container-mainnet-1.0:latest`
 
 (`-it` is optional)
 

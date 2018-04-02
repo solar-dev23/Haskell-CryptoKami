@@ -520,7 +520,7 @@ api :: (HasCompileInfo, HasUpdateConfiguration) => Swagger
 api = toSwagger walletAPI
   & info.title   .~ "Cardano Wallet API"
   & info.version .~ "2.0"
-  & host ?~ "127.0.0.1:8090"
+  & host ?~ "0.0.0.0:8090"
   & info.description ?~ (highLevelDescription $ DescriptionEnvironment {
       deErrorExample = toS $ encodePretty Errors.WalletNotFound
     , deDefaultPerPage = fromString (show defaultPerPageEntries)

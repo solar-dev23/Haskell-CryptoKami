@@ -82,7 +82,7 @@ server port qdiscChoice = do
     let qdisc = makeQDisc qdiscChoice
 
     Right transport_ <-
-        liftIO $ TCP.createTransport "0.0.0.0" "127.0.0.1" port (TCP.defaultTCPParameters { TCP.tcpQDisc = qdisc })
+        liftIO $ TCP.createTransport "0.0.0.0" "0.0.0.0" port (TCP.defaultTCPParameters { TCP.tcpQDisc = qdisc })
     let transport = concrete transport_
     let prng = mkStdGen 0
     totalBytes <- newSharedAtomic 0
@@ -119,12 +119,12 @@ client :: String -> String -> Production ()
 client serverPort clientPort = do
 
     Right transport_ <-
-        liftIO $ TCP.createTransport "0.0.0.0" "127.0.0.1" clientPort TCP.defaultTCPParameters
+        liftIO $ TCP.createTransport "0.0.0.0" "0.0.0.0" clientPort TCP.defaultTCPParameters
     let transport = concrete transport_
     --let transport = concrete transport_
     let prng = mkStdGen 1
     -- Assume the server's end point identifier is 0. It always will be.
-    let serverAddress = NodeId (TCP.encodeEndPointAddress "127.0.0.1" serverPort 0)
+    let serverAddress = NodeId (TCP.encodeEndPointAddress "0.0.0.0" serverPort 0)
 
     liftIO . putStrLn $ "Starting client on port " ++ show clientPort
 

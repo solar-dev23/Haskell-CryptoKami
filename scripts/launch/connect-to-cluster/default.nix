@@ -7,8 +7,8 @@
 , system ? builtins.currentSystem
 , pkgs ? import localLib.fetchNixPkgs { inherit system config; }
 , gitrev ? localLib.commitIdFromGitRepo ./../../../.git
-, walletListen ? "127.0.0.1:8090"
-, ekgListen ? "127.0.0.1:8000"
+, walletListen ? "0.0.0.0:8090"
+, ekgListen ? "0.0.0.0:8000"
 }:
 
 with localLib;

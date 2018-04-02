@@ -213,7 +213,7 @@ mode, let's see how to run auxx with configuration:
 
 ```
 $ scripts/launch/auxx.sh repl
-/home/gumo/Projects/cardano-sl/.stack-work/install/x86_64-linux/lts-9.1/8.0.2/bin/cardano-auxx  --peer 127.0.0.1:3000 --peer 127.0.0.1:3001 --peer 127.0.0.1:3002 --peer 127.0.0.1:3003   --json-log=/home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_171923/node.json  --logs-prefix /home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_171923 --log-config /home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_171923/conf/auxx.log.yaml                   --system-start 100500 repl
+/home/gumo/Projects/cardano-sl/.stack-work/install/x86_64-linux/lts-9.1/8.0.2/bin/cardano-auxx  --peer 0.0.0.0:3000 --peer 0.0.0.0:3001 --peer 0.0.0.0:3002 --peer 0.0.0.0:3003   --json-log=/home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_171923/node.json  --logs-prefix /home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_171923 --log-config /home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_171923/conf/auxx.log.yaml                   --system-start 100500 repl
 Welcome to Cardano SL Auxx REPL
 Mode: with-config
 ... the auxx plugin is ready
@@ -229,7 +229,7 @@ them will use up-to-date context. To keep up with the blockchain, specify the mo
 
 ```
 $ scripts/launch/auxx.sh repl --mode with-node
-/home/gumo/Projects/cardano-sl/.stack-work/install/x86_64-linux/lts-9.1/8.0.2/bin/cardano-auxx  --peer 127.0.0.1:3000 --peer 127.0.0.1:3001 --peer 127.0.0.1:3002 --peer 127.0.0.1:3003   --json-log=/home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_172834/node.json  --logs-prefix /home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_172834 --log-config /home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_172834/conf/auxx.log.yaml                   --system-start 100500 repl --mode with-node
+/home/gumo/Projects/cardano-sl/.stack-work/install/x86_64-linux/lts-9.1/8.0.2/bin/cardano-auxx  --peer 0.0.0.0:3000 --peer 0.0.0.0:3001 --peer 0.0.0.0:3002 --peer 0.0.0.0:3003   --json-log=/home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_172834/node.json  --logs-prefix /home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_172834 --log-config /home/gumo/Projects/cardano-sl/scripts/../logs/2017-11-25_172834/conf/auxx.log.yaml                   --system-start 100500 repl --mode with-node
 Welcome to Cardano SL Auxx REPL
 ... the auxx plugin is ready
 auxx> 

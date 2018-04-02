@@ -163,7 +163,7 @@ updateTest config (Config{..}) = do
             , "--configuration-key", cKey
             , "--configuration-file", cFile'
             , "--system-start", "0"
-            , "--peer", "127.0.0.1:3001"
+            , "--peer", "0.0.0.0:3001"
             , "--db-path", "run/auxx-db"
             , "--log-config", "log-configs/greppable.yaml"
             , "cmd", "--commands", cmds
